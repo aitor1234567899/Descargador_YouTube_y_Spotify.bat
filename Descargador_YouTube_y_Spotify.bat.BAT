@@ -29,12 +29,13 @@ cls
 echo ==========================================
 echo Actualizando yt-dlp y comprobando dependencias...
 echo ==========================================
-py -m pip install --upgrade yt-dlp >nul 2>&1
+py -m pip install --upgrade pip
+py -m pip install --upgrade yt-dlp
 
 ffmpeg -version >nul 2>&1
 if errorlevel 1 (
-    echo Instalando FFmpeg...
-    winget install -e --id Gyan.FFmpeg --accept-package-agreements --accept-source-agreements >nul 2>&1
+    echo Instalando FFmpeg mediante winget...
+    winget install -e --id Gyan.FFmpeg --accept-package-agreements --accept-source-agreements
 )
 
 :YT_MENU
@@ -160,13 +161,14 @@ echo ==========================================
 py --version >nul 2>&1
 if errorlevel 1 goto ERROR_PYTHON
 
-py -m pip install --upgrade spotdl >nul 2>&1
+py -m pip install --upgrade pip
+py -m pip install --upgrade spotdl
 if errorlevel 1 goto ERROR_SPOTDL
 
 ffmpeg -version >nul 2>&1
 if errorlevel 1 (
-    echo Instalando FFmpeg...
-    winget install -e --id Gyan.FFmpeg --accept-package-agreements --accept-source-agreements >nul 2>&1
+    echo Instalando FFmpeg mediante winget...
+    winget install -e --id Gyan.FFmpeg --accept-package-agreements --accept-source-agreements
 )
 
 :SPOTIFY_MENU
